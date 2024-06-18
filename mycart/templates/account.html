@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Optional: Add your custom styles here */
+        a:link {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .col-md-8 {
+            color: black;
+        }
+
+        .darkmode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        /* Adjust alignment of buttons within container */
+        .container {
+            position: relative;
+            padding-top: 50px; /* Adjust according to your layout */
+        }
+        .orange {
+            color: orange;
+        }
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Welcome {{ user.first_name }}</a>
+    <div class="mx-auto">
+        <h2 class="mb-0"><span class="orange">E</span> - <span class="blue">Kart</span></h2>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav d-flex align-items-start">
+            <li class="nav-item">
+                <a href="{% url 'mycarts' %}" class="btn btn-primary ml-2" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i> My Cart</a>
+            </li>
+            <li class="nav-item">
+                <button class="btn btn-primary ml-2" id="darkmodetoggle">Dark Mode</button>
+            </li>
+            <li class="nav-item">
+                <a href="{% url 'logout_page' %}" class="btn btn-primary ml-2" id="logoutBtn">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <!-- Categories -->
+        <div class="col-md-3">
+            <h2>Categories:</h2>
+            <table class="table">
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td><a href="">{{ category.name }}</a></td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td><button class="btn btn-primary" onclick="">show all</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Photos -->
+        <div class="col-md-8">
+            <div class="row">
+                {% for photo in photos %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        {% if photo.img %}
+                        <a href="">
+                            <img height="200" width="200" src="{{ photo.img.url }}" class="card-img-top" alt="{{ photo.title }}">
+                        </a>
+                        {% else %}
+                        <p>No image available</p>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ photo.title }}</h5>
+                            <p class="card-text">Category: {{ photo.category }}</p>
+                            <p class="card-text">{{ photo.description }}</p>
+                            <p class="card-text">Price:{{ photo.price }}</p>
+                            <div>
+
+<button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'order' photo.id %}'">
+    <i class="fas fa-shopping-cart"></i> <!-- Font Awesome icon for shopping cart -->
+    <b> Add to Cart </b>
+</button>
+
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                {% if forloop.counter|divisibleby:3 and not forloop.last %}
+
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const darkmodetoggle = document.getElementById('darkmodetoggle');
+    const body = document.body;
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+        body.classList.toggle('darkmode');
+        // Store the dark mode preference in localStorage
+        const isDarkModeEnabled = body.classList.contains('darkmode');
+        localStorage.setItem('darkMode', isDarkModeEnabled);
+    }
+
+    // Check if dark mode preference is stored in localStorage
+    const isDarkModeStored = localStorage.getItem('darkMode');
+    if (isDarkModeStored === 'true') {
+        body.classList.add('darkmode');
+    }
+
+    // Event listener for dark mode toggle button
+    darkmodetoggle.addEventListener('click', toggleDarkMode);
+</script>
+
+<!-- Bootstrap JS (optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

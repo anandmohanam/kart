@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .img {
+            height: 80px;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>My Cart</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <!-- <th>Description</th> -->
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Assuming 'myitems' is the list of items from your backend -->
+                {% for myitem in myitem %}
+                <tr>
+                    <td>
+                        {% if myitem.photo.img %}
+                            <img src="{{ myitem.photo.img.url }}" class="img" alt="no img">
+                        {% else %}
+                            <p>No image available</p>
+                        {% endif %}
+                    </td>
+                    <!-- <td>{{ myitem.description }}</td> -->
+                    <td>{{ myitem.photo.category }}</td>
+                    <td>{{ myitem.photo.price }}</td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="number" id="quantity" name="quantity" class="form-control" value="{{ myitem.quantity }}" min="1">
+                            </div>
+                    </td>
+                    <td>{{ myitem.ordered_at }}</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Update
+                        </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
