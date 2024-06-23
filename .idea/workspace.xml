@@ -4,7 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8804c49-bdde-4807-8ab0-c22020ae428c" name="Changes" comment="" />
+    <list default="true" id="f8804c49-bdde-4807-8ab0-c22020ae428c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mycart/migrations/0007_order_total.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mycart/migrations/0008_payment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mycart/migrations/0009_alter_payment_payment_method.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mycart/templates/payment_confirmation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mycart/templates/success_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/1_tVLGaJm.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/2.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/2_1F0cWCT.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/3_g4PvcSq.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/5.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/5_ObZ7whG.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/harry_potter.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/pen.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/pen3.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/pen_b.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic/wings_of_fire.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/templates/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/templates/mycart.html" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/templates/mycart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/templates/payment.html" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/templates/payment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mycart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,23 +48,27 @@
       </list>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2hYXLceuECPZ3ekXzAfawoBNghl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/E-kart"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/E-kart&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

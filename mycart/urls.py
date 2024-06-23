@@ -5,13 +5,17 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.login_fun, name='login_fun'),
+    path('', views.login_fun, name='login'),
     path('register/', views.register, name='register'),
     path('account/', views.account, name='account'),
-    path('payment', views.payment, name='payment'),
-    path('mycarts/', views.mycarts, name='mycarts'),
+    path('payment/', views.payment, name='payment'),
+    path('payment_confirmation',views.payment_confirmation,name='payment_confirmation'),
+    path('success/', views.success_page, name='success_page'),
     path('order/<int:pk>/', views.order, name='order'),
-    path('logout_page/', views.logout_page, name='logout_page'),
+    path('mycarts/', views.mycarts, name='mycarts'),
+    path('update/', views.update, name='update'),
+    path('delete/', views.delete, name='delete'),
+    path('logout/', views.logout_page, name='logout'),
 ]
 
 

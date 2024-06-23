@@ -12,59 +12,79 @@
             height: 80px;
             width: 80px;
         }
+        .list-group-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        .quantity-controls button {
+            margin: 0 5px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>My Cart</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Image</th>
-                    <!-- <th>Description</th> -->
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Assuming 'myitems' is the list of items from your backend -->
-                {% for myitem in myitem %}
-                <tr>
-                    <td>
-                        {% if myitem.photo.img %}
-                            <img src="{{ myitem.photo.img.url }}" class="img" alt="no img">
-                        {% else %}
-                            <p>No image available</p>
-                        {% endif %}
-                    </td>
-                    <!-- <td>{{ myitem.description }}</td> -->
-                    <td>{{ myitem.photo.category }}</td>
-                    <td>{{ myitem.photo.price }}</td>
-                    <td>
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <input type="number" id="quantity" name="quantity" class="form-control" value="{{ myitem.quantity }}" min="1">
-                            </div>
-                    </td>
-                    <td>{{ myitem.ordered_at }}</td>
-                    <td>
-                        <button type="submit" class="btn btn-primary">
+        <ul class="list-group">
+            {% for item in items_in_cart %}
+            <li class="list-group-item">
+                <div>
+                    <img src="{{ item.photo.img.url }}" class="img" alt="No image available">
+                </div>
+                <div>
+                    <h5>{{ item.photo.category }}</h5>
+                    <p>Price: {{ item.price }}</p>
+                    <p>Total Price: {{ item.total_price }}</p>
+                    <p>Date: {{ item.ordered_at }}</p>
+                </div>
+                <div>
+                    <form action="{% url 'update' %}" method="POST" class="d-inline">
+                        {% csrf_token %}
+                        <input type="hidden" name="photo_id" value="{{ item.photo.id }}">
+                        <div class="quantity-controls">
+                            <button type="button" class="btn btn-secondary" onclick="changeQuantity('{{ item.photo.id }}', -1)">-</button>
+                            <input type="number" id="quantity_{{ item.photo.id }}" name="quantity" class="form-control" value="{{ item.quantity }}" min="1">
+                            <button type="button" class="btn btn-secondary" onclick="changeQuantity('{{ item.photo.id }}', 1)">+</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">
                             <i class="fas fa-shopping-cart"></i> Update
                         </button>
-                        </form>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+                    </form>
+                    <form action="{% url 'delete' %}" method="POST" class="d-inline mt-2">
+                        {% csrf_token %}
+                        <input type="hidden" name="photo_id" value="{{ item.photo.id }}">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+            <h4>Total: <strong>{{ cart_total }}</strong></h4>
+
+            <a href="{% url 'payment' %}" class="btn btn-primary ml-2">Checkout</a>
+        </div>
     </div>
     <!-- Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function changeQuantity(photoId, delta) {
+            var quantityInput = document.getElementById('quantity_' + photoId);
+            var currentQuantity = parseInt(quantityInput.value);
+            var newQuantity = currentQuantity + delta;
+            if (newQuantity >= 1) {
+                quantityInput.value = newQuantity;
+            }
+        }
+    </script>
 </body>
 </html>
