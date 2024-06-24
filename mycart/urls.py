@@ -6,8 +6,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('', views.login_fun, name='login'),
-    path('register/', views.register, name='register'),
     path('account/', views.account, name='account'),
+    path('register/', views.register, name='register'),
+    path('accounts/<int:pk>/', views.accounts, name='accounts'),
     path('payment/', views.payment, name='payment'),
     path('payment_confirmation',views.payment_confirmation,name='payment_confirmation'),
     path('success/', views.success_page, name='success_page'),

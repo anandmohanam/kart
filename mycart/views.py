@@ -57,6 +57,16 @@ def account(request):
 
 
 @login_required
+def accounts(request,pk):
+
+    user = request.user
+    categories = Category.objects.all()
+    c = get_object_or_404(Category, id=pk)
+    photos = Photo.objects.filter(name=c)
+    return render(request, 'account.html', {'user': user, 'categories': categories, 'photos': photos})
+
+
+@login_required
 def order(request, pk):
     myitem = get_object_or_404(Photo, id=pk)
 

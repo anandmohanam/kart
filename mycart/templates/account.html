@@ -21,9 +21,17 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        .col-md-8 {
+            color: black;
+        }
+
         .darkmode {
             background-color: #333;
             color: #f0f0f0;
+        }
+
+        #darkmodetoggle {
+            position: relative;
         }
 
         .container {
@@ -46,7 +54,7 @@
         <h2 class="mb-0"><span class="orange">E</span> - <span class="blue">Kart</span></h2>
     </div>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav d-flex align-items-start">
+        <ul class="navbar-nav d-flex align-items-center">
             <li class="nav-item">
                 <a href="{% url 'mycarts' %}" class="btn btn-primary ml-2">
                     <i class="fas fa-shopping-cart"></i> My Cart</a>
@@ -74,7 +82,7 @@
                 </tr>
                 {% endfor %}
                 <tr>
-                    <td><button class="btn btn-primary" onclick="">Show All</button></td>
+                    <td><button class="btn btn-primary" onclick="window.location.href='{% url 'account' %}'">Show All</button></td>
                 </tr>
                 </tbody>
             </table>
@@ -88,7 +96,7 @@
                     <div class="card">
                         {% if photo.img %}
                         <a href="#">
-                            <img height="200" width="200" src="{{ photo.img.url }}" class="card-img-top" alt="{{ photo.description }}">
+                            <img height="170" width="170" src="{{ photo.img.url }}" class="card-img-top" alt="{{ photo.description }}">
                         </a>
                         {% else %}
                         <p>No image available</p>
@@ -117,6 +125,7 @@
 </div>
 
 <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
     const darkmodetoggle = document.getElementById('darkmodetoggle');
     const body = document.body;
 
@@ -130,6 +139,8 @@
     }
 
     darkmodetoggle.addEventListener('click', toggleDarkMode);
+});
+
 </script>
 
 <!-- Bootstrap JS (optional) -->
