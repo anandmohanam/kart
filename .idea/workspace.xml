@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mycart/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/templates/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mycart/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mycart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mycart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mycart/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

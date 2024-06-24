@@ -62,7 +62,7 @@ def accounts(request,pk):
     user = request.user
     categories = Category.objects.all()
     c = get_object_or_404(Category, id=pk)
-    photos = Photo.objects.filter(name=c)
+    photos = Photo.objects.filter(category=c)
     return render(request, 'account.html', {'user': user, 'categories': categories, 'photos': photos})
 
 
